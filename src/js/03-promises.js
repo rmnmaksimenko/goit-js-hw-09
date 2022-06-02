@@ -9,11 +9,11 @@ let isGoing = 0;
 const form = document.querySelector('.form');
 
 form.addEventListener('submit', e => {
-  if (isGoing === 1) {
-    return;
-  }
-  isGoing = 1;
   e.preventDefault();
+  // if (isGoing === 1) {
+  //   return;
+  // }
+  isGoing = 1;
   const formData = new FormData(e.target);
   delay = parseInt(Object.fromEntries(formData).delay);
   step = parseInt(Object.fromEntries(formData).step);
