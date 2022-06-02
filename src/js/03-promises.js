@@ -4,10 +4,15 @@ let step = null;
 let amount = null;
 let timer = null;
 let currentTick = 0;
+let isGoing = 0;
 
 const form = document.querySelector('.form');
 
 form.addEventListener('submit', e => {
+  if (isGoing === 1) {
+    return;
+  }
+  isGoing = 1;
   e.preventDefault();
   const formData = new FormData(e.target);
   delay = parseInt(Object.fromEntries(formData).delay);
@@ -24,6 +29,7 @@ form.addEventListener('submit', e => {
       if (currentTick === amount) {
         clearInterval(timer);
         currentTick = 0;
+        isGoing = 0;
       }
     }, step);
   }, delay);
