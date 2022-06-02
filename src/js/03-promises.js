@@ -10,9 +10,9 @@ const form = document.querySelector('.form');
 
 form.addEventListener('submit', e => {
   e.preventDefault();
-  // if (isGoing === 1) {
-  //   return;
-  // }
+  if (isGoing === 1) {
+    return;
+  }
   isGoing = 1;
   const formData = new FormData(e.target);
   delay = parseInt(Object.fromEntries(formData).delay);
